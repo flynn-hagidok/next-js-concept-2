@@ -24,7 +24,7 @@ const ReviewCard = ({ review }) => {
                 />
 
                 <div className="flex-1">
-                    <h2 className="text-lg font-semibold">{user}</h2>
+                    <h2 className="text-lg text-black font-semibold">{user}</h2>
 
                     <p className="text-sm text-gray-500">
                         {new Date(date).toLocaleDateString()}
