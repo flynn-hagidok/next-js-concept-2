@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <header className="flex justify-between items-center bg-stone-800 h-20 px-8">
-          <img src="/next.svg" alt="" className="w-[120px]" />
+          <Link href="/">
+            <img src="/next.svg" alt="" className="w-[120px]" />
+          </Link>
 
           <div className="space-x-6">
             <Link className="btn-1" href={'/foods'}>Foods</Link >
