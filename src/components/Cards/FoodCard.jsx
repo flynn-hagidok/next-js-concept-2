@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Add2Cart from "../Buttons/Add2Cart";
 
 const FoodCard = ({ food }) => {
     const { id, title, category, foodImg, price } = food;
@@ -31,9 +32,7 @@ const FoodCard = ({ food }) => {
                 </p>
 
                 <div className="flex gap-3">
-                    <button className="flex-1 rounded-lg bg-orange-500 px-4 py-2 font-medium text-white transition hover:bg-orange-600">
-                        Add to Cart
-                    </button>
+                    <Add2Cart food={food}></Add2Cart>
 
                     <Link
                         href={`/foods/${id}`}
