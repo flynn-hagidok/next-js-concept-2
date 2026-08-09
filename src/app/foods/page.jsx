@@ -2,6 +2,11 @@ import FoodCard from "@/components/Cards/FoodCard";
 import CartItems from "./cartItems";
 import FoodSearch from "@/components/Search/FoodSearch";
 
+export const metadata = {
+  title: "All Foods",
+  description: "Best Resturant in Bangladesh",
+};
+
 const getFoods = async (search) => {
     const res = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`);
     const data = await res.json();
