@@ -1,25 +1,53 @@
-import { feedback } from "../route";
+import { connect } from "@/app/lib/dbConnect";
+// import { feedback } from "../route";
 
+const feedbackCollection = connect("feedbacks");
+
+// export async function GET() {
+//     return Response.json(feedback)
+// };
+
+// export async function POST(req) {
+
+//     const { message } = await req.json();
+
+//     if (!message || typeof message !== "string") {
+//         return Response.json({
+//             status: 400,
+//             message: "please give correct message"
+//         })
+//     };
+
+//     const newFeedback = { message, id: feedback.length + 1 }
+//     feedback.push(newFeedback);
+
+//     return Response.json({
+//         acknowledge: true,
+//         insertedId: newFeedback.id
+//     })
+// };
+
+
+// get to mongodb databe
 export async function GET() {
-    return Response.json(feedback)
-};
+    const result = await feedbackCollection.find().toArray();
+    return Response.json(result);
+}
 
+
+// post to mongodb database
 export async function POST(req) {
-
     const { message } = await req.json();
 
     if (!message || typeof message !== "string") {
         return Response.json({
             status: 400,
-            message: "please give correct message"
-        })
+            message: "please send a message"
+        });
     };
 
-    const newFeedback = { message, id: feedback.length + 1 }
-    feedback.push(newFeedback);
+    const newFeedback = { message, date: new Date().toLocaleString() };
+    const result = await feedbackCollection.insertOne(newFeedback);
 
-    return Response.json({
-        acknowledge: true,
-        insertedId: newFeedback.id
-    })
-};
+    return Response.json(result);
+}
