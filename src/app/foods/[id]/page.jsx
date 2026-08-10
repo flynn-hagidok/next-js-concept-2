@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
     const { details = {} } = await res.json();
     return {
         title: details.title
-    }
+    };
 };
 
 const getFoods = async (id) => {

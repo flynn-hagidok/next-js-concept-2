@@ -1,4 +1,10 @@
+import { Poppins } from "next/font/google";
 import Image from "next/image";
+
+const popins = Poppins({
+    weight: ["400", "600"],
+    subsets: ["latin"]
+});
 
 const FoodDetailsCard = ({ food }) => {
     const {
@@ -12,7 +18,7 @@ const FoodDetailsCard = ({ food }) => {
     } = food;
 
     return (
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border bg-white shadow-lg p-10">
+        <div className={`${popins.className} mx-auto max-w-5xl overflow-hidden rounded-2xl border bg-white shadow-lg p-10`}>
             <div className="grid md:grid-cols-2">
                 <div className="relative h-80 md:h-full">
                     <Image

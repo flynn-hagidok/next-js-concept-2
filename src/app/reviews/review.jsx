@@ -2,6 +2,11 @@
 import ReviewCard from "@/components/Cards/ReviewsCard";
 import { useEffect, useState } from "react";
 import ReviewLoading from "./ReviewLoading";
+import { Anek_Bangla } from "next/font/google";
+
+const anek = Anek_Bangla({
+    weight: ["400", "600"]
+});
 
 const Reviews = () => {
 
@@ -23,7 +28,7 @@ const Reviews = () => {
     return (
         <div>
             <h2>Reviews</h2>
-            <div className="grid grid-cols-3 gap-6 my-10">
+            <div className={`${anek.className} grid grid-cols-3 gap-6 my-10`}>
                 {
                     reviews.map(review => <ReviewCard key={review.id} review={review}></ReviewCard>)
                 }
