@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const AddFeedbackForm = () => {
+const AddFeedbackForm = ({ postFeedback }) => {
 
     const router = useRouter()
     const handleSubmit = async (e) => {
@@ -13,14 +13,17 @@ const AddFeedbackForm = () => {
             message
         };
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/feedback`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(feedbackData)
-        });
-        const data = await res.json();
+        const data = await postFeedback(feedbackData)
+
+        // const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/feedback`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(feedbackData)
+        // });
+        // const data = await res.json();
+
         if (data.insertedId) {
             alert("success");
             form.reset();

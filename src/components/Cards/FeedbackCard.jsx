@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
     const { _id, message, date } = feedback;
@@ -15,14 +15,12 @@ const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
 
             <div className="flex gap-3">
                 <button
-                    onClick={() => onUpdate(_id)}
                     className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-600"
                 >
                     Update
                 </button>
 
                 <button
-                    onClick={() => onDelete(_id)}
                     className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-600"
                 >
                     Delete

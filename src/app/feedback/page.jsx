@@ -1,19 +1,24 @@
 import FeedbackCard from "@/components/Cards/FeedbackCard";
 import AddFeedback from "./add/page";
 import Link from "next/link";
+// import { connect } from "../../lib/dbConnect";
+import { getFeedback } from "@/action/server/feedback";
 
-const getFeedback = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/feedback`, {
-        cache: "force-cache",
-        next: { revalidate: 60 }
-    });
-    const data = await res.json();
-    return data;
-}
+export const dynamic = "force-dynamic";
+
+// const getFeedback = async () => {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/feedback`, {
+//         // cache: "force-cache",
+//         next: { revalidate: 60 }
+//     });
+//     const data = await res.json();
+//     return data;
+// }
 
 const FeedbackPage = async () => {
 
     const feedbacks = await getFeedback();
+    // const feedbacks = await connect("feedbacks").find().toArray();
 
     return (
         <div>

@@ -1,5 +1,5 @@
 // import { feedback } from "../../route";
-import { connect } from "@/app/lib/dbConnect";
+import { connect } from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 
 const feedbackCollection = connect("feedbacks");
