@@ -1,4 +1,5 @@
 import FoodDetailsCard from "@/components/Cards/FoodDetailsCard";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params }) {
     const { id } = await params;
@@ -27,12 +28,12 @@ const FoodDetails = async ({ params }) => {
 
     const foodDetails = await getFoods(id);
 
-    if (!food) {
+    if (!foodDetails.title) {
         return (
-            <div className="text-center text-2xl font-semibold">Food Not Found</div>
+            // <div className="text-center font-bold text-2xl">Page not found</div>
+            redirect("/foods")
         )
     }
-
     return (
         <section className="container mx-auto py-12">
             <FoodDetailsCard food={foodDetails} />
