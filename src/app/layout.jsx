@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
           <div className="space-x-6">
             <Link className="btn-1" href={'/foods'}>Foods</Link >
             <Link className="btn-1" href={'/reviews'}>Reviews</Link >
+            <Link className="btn-1" href={'/feedback'}>Feedbacks</Link >
           </div>
         </header>
 

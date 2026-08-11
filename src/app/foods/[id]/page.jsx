@@ -27,6 +27,12 @@ const FoodDetails = async ({ params }) => {
 
     const foodDetails = await getFoods(id);
 
+    if (!food) {
+        return (
+            <div className="text-center text-2xl font-semibold">Food Not Found</div>
+        )
+    }
+
     return (
         <section className="container mx-auto py-12">
             <FoodDetailsCard food={foodDetails} />
